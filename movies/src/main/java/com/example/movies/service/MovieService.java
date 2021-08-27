@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -16,7 +17,8 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class MovieService {
     
-	private final String apiKey = "dcda07a9";
+	@Value("${apikey}")
+	private  String apiKey;
 	private String baseUrl = "http://www.omdbapi.com";
 	private final  RestTemplate restTemplate ;
 	public String getFullUrl(String movieName)
